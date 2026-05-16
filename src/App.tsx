@@ -1,11 +1,26 @@
-//App.tsx
-import Users from "./features/users/get-users/users.tsx"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import LoginPage from "./features/auth/login-page"
+import RegisterPage from "./features/auth/register-page"
+import ProtectedRoute from "./components/protected-route"
+import Me from "./features/users/me/me"
 
 export function App() {
   return (
-    <div className="flex min-h-svh p-6">
-      <Users />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Me />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
