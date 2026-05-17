@@ -18,6 +18,6 @@ COPY --from=builder /app/dist ./dist
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
-EXPOSE 5173
+EXPOSE 5040
 
-CMD ["npx", "vite", "preview", "--host", "0.0.0.0", "--port", "5173"]
+CMD ["npx", "vite", "preview", "--host", "0.0.0.0", "--port", "5040"]
