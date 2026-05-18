@@ -1,6 +1,7 @@
 import type { User } from "../get-users/user.type"
 
 export const fetchMe = async (): Promise<{ user: User }> => {
+  console.log('VITE_BACKEND_URL', import.meta.env.VITE_BACKEND_URL)
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/me`, {
     credentials: "include",
   })
