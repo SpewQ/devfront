@@ -1,7 +1,7 @@
 import type { User } from "../get-users/user.type"
 
 export const fetchMe = async (): Promise<{ user: User }> => {
-  const response = await fetch(`http://15.235.206.148:5001/users/me`, {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/me`, {
     credentials: "include",
   })
 
